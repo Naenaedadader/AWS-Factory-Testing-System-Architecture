@@ -62,3 +62,7 @@ This repository focuses on architectural design and system concepts only.
 
 All workflows, schemas, and examples are simplified and fictional. This project
 does not include production business logic or proprietary implementations and is intended solely for demonstration purposes.
+
+## Architecture Overview
+
+![Cloud Architecture Diagram](diagrams/AWS_STURCTURE.png)
