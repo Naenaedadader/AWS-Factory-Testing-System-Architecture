@@ -65,4 +65,5 @@ does not include production business logic or proprietary implementations and is
 
 ## Architecture Overview
 
-![Cloud Architecture Diagram](diagrams/AWS_STURCTURE.png)
+
+<img width="1396" height="527" alt="image" src="https://github.com/user-attachments/assets/4e7aee82-5ae9-426a-8064-6b5cc6c52544" />
