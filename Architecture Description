@@ -1,0 +1,141 @@
+# System Architecture Overview
+
+This document describes the high-level architecture of a cloud-based factory
+testing system built using AWS serverless services. The system is designed to
+support on-site data collection, centralized management, and operational
+visibility while minimizing infrastructure overhead.
+
+---
+
+## Architectural Goals
+
+The primary goals of the system architecture are:
+
+- Enable tablet-friendly data entry for factory operators
+- Centralize test and calibration records in a cloud-based system
+- Support role-based access and management functions
+- Provide aggregated metrics and dashboards for supervisors and administrators
+- Minimize operational overhead through serverless design
+
+---
+
+## High-Level Architecture
+
+The system follows a serverless, event-driven architecture composed of the
+following layers:
+
+1. Client Layer (Tablet / Browser)
+2. Static Hosting Layer (Amazon S3)
+3. API Layer (Amazon API Gateway)
+4. Compute Layer (AWS Lambda)
+5. Data Layer (Amazon RDS)
+
+All client interactions are performed over HTTPS, and no direct access to the
+database is allowed from the client.
+
+---
+
+## Client Layer
+
+Factory operators and administrators access the system through a web-based
+interface optimized for tablet devices. The client is responsible for:
+
+- User authentication initiation
+- Form navigation and data input
+- Sending API requests with authentication tokens
+- Rendering query results and dashboards
+
+The client contains no business logic or database connectivity.
+
+---
+
+## Static Hosting Layer
+
+The frontend application is hosted as static assets on Amazon S3. This approach
+provides:
+
+- Low operational cost
+- High availability
+- Simple deployment and versioning
+
+All frontend resources are served securely over HTTPS.
+
+---
+
+## API Layer
+
+Amazon API Gateway acts as the unified entry point for all client requests.
+Responsibilities include:
+
+- Request routing
+- Basic request validation
+- Forwarding requests to backend compute services
+
+API Gateway isolates the client from backend implementation details.
+
+---
+
+## Compute Layer
+
+AWS Lambda functions implement the core backend logic of the system, including:
+
+- Authentication and token validation (JWT-based)
+- Role-based access control (RBAC)
+- Business rule enforcement
+- Data processing and persistence
+- Query handling and result aggregation
+
+Each function is designed to be stateless and independently scalable.
+
+---
+
+## Data Layer
+
+Persistent data is stored in Amazon RDS using a relational database model.
+The data layer is designed with the following principles:
+
+- Standardized shared fields across records
+- Consistent naming and data types
+- Support for audit-related attributes (e.g., timestamps, status flags)
+- Schema extensibility without impacting existing structures
+
+The database is accessible only from the compute layer and is not exposed
+directly to clients.
+
+---
+
+## Data and Reporting Capabilities
+
+In addition to raw record storage, the system supports:
+
+- Aggregation of test records
+- Calculation of derived metrics (e.g., counts, rates, durations)
+- Time-based trend analysis
+- Summary dashboards for supervisory roles
+
+All dashboard visualizations shown in this repository are based on example or
+synthetic data.
+
+---
+
+## Security Considerations
+
+Security is enforced across multiple layers:
+
+- All communication uses HTTPS
+- JWT-based authentication is required for API access
+- Role-based authorization restricts available operations
+- No direct database access from the client
+- Sensitive logic is confined to AWS-managed services
+
+---
+
+## Scope and Limitations
+
+This repository focuses on architectural design and system capabilities.
+Detailed business workflows, domain-specific test forms, and implementation
+details are intentionally excluded to maintain appropriate boundaries for
+public sharing.
+
+The architecture described here represents a generalized design pattern and
+does not expose proprietary or production-specific configurations.
