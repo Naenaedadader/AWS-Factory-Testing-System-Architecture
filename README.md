@@ -67,3 +67,44 @@ does not include production business logic or proprietary implementations and is
 
 
 <img width="1396" height="527" alt="image" src="https://github.com/user-attachments/assets/4e7aee82-5ae9-426a-8064-6b5cc6c52544" />
+
+
+
+
+
+## User Interface (Example)
+
+The user interface is organized around a centralized menu that provides access to four core functions of the system.
+
+
+- Test forms allow authorized users to submit testing or calibration data, which is processed and stored by backend services. 
+
+
+- Submitted records can be reviewed and managed through the query interface, where users retrieve data based on filters and permissions.
+
+
+- Aggregated dashboards present summarized metrics and trends derived from stored records, supporting monitoring and oversight.
+
+- Account management functions enable administrators to manage user access and role permissions across the
+system.
+
+All interface actions follow the same backend architecture and are governed by authentication and role-based access control.
+
+(Detailed test form pages are not shown in this repository.
+While form-based data entry is fully implemented in the system, these screens
+are closely tied to domain-specific workflows. This repository therefore
+focuses on architecture and system capabilities for public demonstration.)
+
+
+**| Main Menu |**
+<img width="1396" height="527" alt="image" src="https://github.com/Naenaedadader/AWS-Factory-Testing-System-Architecture/blob/main/menu_demo.png" />
+
+**| Query  |**
+<img width="1396" height="527" alt="image" src="https://github.com/Naenaedadader/AWS-Factory-Testing-System-Architecture/blob/main/Search_demo.png" />
+
+**| Account Management |**
+<img width="1396" height="527" alt="image" src="https://github.com/Naenaedadader/AWS-Factory-Testing-System-Architecture/blob/main/account_manage_demo.png" />
+
+**| Dashboard (Example Data) |**
+<img width="1396" height="527" alt="image" src="https://github.com/Naenaedadader/AWS-Factory-Testing-System-Architecture/blob/main/dashboard_demo%E5%9C%96.png" />
+
